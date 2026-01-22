@@ -1,10 +1,11 @@
 import os
 from datetime import date
 
-# For PostgreSQL connection
-DATABASE_USER = "cmaps_user"
-DATABSE_NAME = "cmaps_db"
-POSTGRESQL_URL_KEY = "POSTGRESQL_URL"
+# For MongoDB connection
+DATABASE_NAME = "PMF_RawData"
+# DATA_COLLECTION_NAME = "cmaps_series"
+# RUL_COLLECTION_NAME = "cmaps_rul"
+MONGODB_URL_KEY = "MONGODB_URL"
 
 PIPELINE_NAME: str = ""
 ARTIFACT_DIR: str = "artifact"
@@ -15,9 +16,11 @@ TARGET_COLUMN = "Response"
 CURRENT_YEAR = date.today().year
 PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 
-FILE_NAME: str = "data.csv"
+RAW_DATA_FILE_NAME: str = "raw_data.csv"
+RAW_RUL_FILE_NAME: str = "raw_rul.csv"
 TRAIN_FILE_NAME: str = "train.csv"
 TEST_FILE_NAME: str = "test.csv"
+RUL_FILE_NAME: str = "rul.csv"
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 
 
@@ -29,11 +32,13 @@ REGION_NAME = "us-east-1"
 """
 Data Ingestion related constant start with DATA_INGESTION VAR NAME
 """
-DATA_INGESTION_COLLECTION_NAME: str = "Proj1-Data"
+DATA_INGESTION_DATA_COLLECTION_NAME: str = "cmaps_series"
+DATA_INGESTION_RUL_COLLECTION_NAME: str = "cmaps_rul"
 DATA_INGESTION_DIR_NAME: str = "data_ingestion"
 DATA_INGESTION_FEATURE_STORE_DIR: str = "feature_store"
 DATA_INGESTION_INGESTED_DIR: str = "ingested"
-DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.25
+DATA_INGESTION_TRAIN_TEST_SPLIT_COLUMN: str = "split"
+DATA_INGESTION_DROP_COLUMNS: list = ["split", "dataset_id"]
 
 """
 Data Validation realted contant start with DATA_VALIDATION VAR NAME

@@ -209,3 +209,12 @@ __marimo__/
 
 # Data
 notebook/CMAPSSData
+artifact
+logs
+
+# .py files
+demo.py
+
+# txt files
+notes.txt
+mongodb_cred.txt

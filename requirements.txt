@@ -3,9 +3,9 @@ pandas
 numpy
 matplotlib
 plotly
-scikit-learn
 seaborn
-psycopg[binary]
+scikit-learn
+pymongo
 from_root
 dill
 certifi
@@ -15,7 +15,7 @@ mypy-boto3-s3
 botocore
 fastapi
 python-multipart
-unicorn
+uvicorn
 jinja2
 imblearn
 -e .
