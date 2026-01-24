@@ -27,6 +27,11 @@ class DataIngestionConfig:
     rul_file_path: str = os.path.join(data_ingestion_dir, DATA_INGESTION_INGESTED_DIR, RUL_FILE_NAME)
 
     train_test_split_cloumn: float = DATA_INGESTION_TRAIN_TEST_SPLIT_COLUMN
-    drop_columns: list = field(default_factory=lambda: DATA_INGESTION_DROP_COLUMNS)
     data_collection_name:str = DATA_INGESTION_DATA_COLLECTION_NAME
     rul_collection_name:str = DATA_INGESTION_RUL_COLLECTION_NAME
+
+
+@dataclass
+class DataValidationConfig:
+    data_validation_dir: str = os.path.join(training_pipeline_config.artifact_dir, DATA_VALIDATION_DIR_NAME)
+    validation_report_file_path: str = os.path.join(data_validation_dir, DATA_VALIDATION_REPORT_FILE_NAME)

@@ -1,0 +1,63 @@
+data_fields:
+  - _id: object
+  - dataset_id: object
+  - split: object
+  - engine_id: int
+  - cycle: int
+
+
+data_feilds_patterns:
+  op_settings:
+    prefix: "op_setting_"
+    index_range: [1, 3]
+    dtype: float
+
+  sensors:
+    prefix: "sensor_"
+    index_range: [1, 21]
+    dtype: float
+
+
+rul_fields:
+  - _id: object
+  - dataset_id: object
+  - engine_id: int
+  - rul: int
+
+
+data_numerical_columns:
+  - engine_id
+  - cycle
+
+
+data_categorical_columns:
+  - _id
+  - dataset_id
+  - split
+
+
+rul_numerical_columns:
+  - engine_id
+  - rul
+
+
+rul_categorical_columns:
+  - _id
+  - dataset_id
+
+
+drop_columns:
+  - _id
+  - dataset_id
+  - split
+  - op_setting_3
+
+
+# Sensors for training.
+sensors:
+  - sensor_4
+  - sensor_8
+  - sensor_9
+  - sensor_12
+  - sensor_13
+  - sensor_14

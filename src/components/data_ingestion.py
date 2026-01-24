@@ -84,12 +84,6 @@ class DataIngestion:
             test_set = data_df[data_df[self.data_ingestion_config.train_test_split_cloumn].str.lower() == "test"].copy()
 
             logging.info(f"Train rows: {train_set.shape}, Test rows: {test_set.shape}")
-
-            # 2) Drop dataset_id & split as per requirement
-            drop_cols = [c for c in self.data_ingestion_config.drop_columns if c in train_set.columns]
-            train_set.drop(columns=drop_cols, inplace=True, errors="ignore")
-            test_set.drop(columns=drop_cols, inplace=True, errors="ignore")
-
             logging.info("Performed train test split on the dataframe")
             logging.info(
                 "Exited split_data_as_train_test method of Data_Ingestion class"
@@ -135,14 +129,14 @@ class DataIngestion:
                 "Exited initiate_data_ingestion method of Data_Ingestion class"
             )
 
-            artifact = DataIngestionArtifact(
+            data_ingestion_artifact = DataIngestionArtifact(
                 trained_file_path=self.data_ingestion_config.training_file_path,
                 test_file_path=self.data_ingestion_config.testing_file_path,
                 rul_file_path=self.data_ingestion_config.rul_file_path,
             )
 
-            logging.info(f"Data ingestion artifact: {artifact}")
-            return artifact
+            logging.info(f"Data ingestion artifact: {data_ingestion_artifact}")
+            return data_ingestion_artifact
 
         except Exception as e:
             raise MyException(e, sys) from e
