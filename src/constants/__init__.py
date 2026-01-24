@@ -5,7 +5,7 @@ from datetime import date
 DATABASE_NAME = "PMF_RawData"
 # DATA_COLLECTION_NAME = "cmaps_series"
 # RUL_COLLECTION_NAME = "cmaps_rul"
-MONGODB_URL_KEY = "MONGODB_URL"
+MONGODB_URL_KEY = "MONGODB_URL_KEY"
 
 PIPELINE_NAME: str = ""
 ARTIFACT_DIR: str = "artifact"

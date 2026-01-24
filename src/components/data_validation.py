@@ -36,10 +36,10 @@ class DataValidation:
         On Failure  :   Write an exception log and then raise an exception
         """
         try:
-            patterns = self._sche_schema_config.get("data_feilds_patterns", {})
+            patterns = self._schema_config.get("data_feilds_patterns", {})
 
             op_settings = patterns.get("op_settings")
-            sensor = patterns.get("sensor")
+            sensor = patterns.get("sensors")
 
             if not op_settings or not sensor:
                 raise KeyError("Missing 'data_feilds_patterns.op_settings' or 'data_feilds_patterns.sensor' in YAML")
@@ -64,7 +64,7 @@ class DataValidation:
         try:
             columns = (
                 self._schema_config["data_fields"] +
-                self.op_sensor_column_list
+                self.op_sensor_column_list()
                 )
             
             status = len(dataframe.columns) == len(columns)
@@ -104,7 +104,7 @@ class DataValidation:
             dataframe_columns = df.columns
             numerical_columns = (
                 self._schema_config["data_numerical_columns"] +
-                self.op_sensor_column_list
+                self.op_sensor_column_list()
             )
 
             categorical_columns = (
