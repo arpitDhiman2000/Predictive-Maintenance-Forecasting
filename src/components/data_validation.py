@@ -41,9 +41,6 @@ class DataValidation:
             op_settings = patterns.get("op_settings")
             sensor = patterns.get("sensors")
 
-            if not op_settings or not sensor:
-                raise KeyError("Missing 'data_feilds_patterns.op_settings' or 'data_feilds_patterns.sensor' in YAML")
-
             cols = (
                 expand_columns(op_settings["prefix"], op_settings["index_range"]) +
                 expand_columns(sensor["prefix"], sensor["index_range"])

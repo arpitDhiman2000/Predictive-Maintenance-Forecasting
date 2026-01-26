@@ -12,8 +12,8 @@ ARTIFACT_DIR: str = "artifact"
 
 MODEL_FILE_NAME = "model.pkl"
 
-TARGET_COLUMN = "Response"
-CURRENT_YEAR = date.today().year
+RUL_VALUE: int = 135
+TARGET_COLUMN = "rul"
 PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 
 RAW_DATA_FILE_NAME: str = "raw_data.csv"
